@@ -1,21 +1,9 @@
-import { useState } from 'react'
+import React from 'react'
 
-import Nav from 'react-bootstrap/Nav'
-import Navbar from 'react-bootstrap/Navbar'
-import NavDropdown from 'react-bootstrap/NavDropdown'
-import Container from 'react-bootstrap/Container'
+import { Container, Navbar, Nav, NavDropdown } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 
-import { Navigate, Link } from 'react-router-dom'
-import { Card } from 'react-bootstrap'
-
-const TestVersionLayout = () => {
-    const [userToken, setUserToken] = useState('2')
-
-    if (!userToken) {
-        return <Navigate to="/login" />
-    }
-
-
+const NavbarComponent = () => {
     return (
         <>
             <Navbar bg="light" expand="lg">
@@ -31,7 +19,7 @@ const TestVersionLayout = () => {
                                 <Nav.Link >Projects</Nav.Link>
                             </Nav.Item>
                             <Nav.Item>
-                                <Nav.Link as={Link} to="teams">Teams</Nav.Link>
+                                <Nav.Link as={Link} to="/teams">Teams</Nav.Link>
                             </Nav.Item>
                             <Nav.Item>
                                 <Nav.Link >Calendar</Nav.Link>
@@ -53,16 +41,8 @@ const TestVersionLayout = () => {
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
-            <Card>
-                <Card.Header>
-                    <h4 className='text-center my-1'>
-                        <Link to="/">Try full version</Link>
-                    </h4>
-                </Card.Header>
-            </Card>
-
         </>
     )
 }
 
-export default TestVersionLayout
+export default NavbarComponent
